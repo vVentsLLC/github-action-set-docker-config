@@ -13,8 +13,6 @@ async function run() {
     auths: { [registry]: { auth } }
   }
 
-  core.debug(`setting docker config to: ${JSON.stringify(config, null, 2)}}`)
-
   const fileDir = `/tmp/set_docker_config_${Date.now()}`
   const fileName = 'config.json'
   const filePath = path.join(fileDir, fileName)
@@ -26,7 +24,6 @@ async function run() {
 
   core.debug(`Setting DOCKER_CONFIG to: ${fileDir}`)
   core.exportVariable('DOCKER_CONFIG', fileDir)
-
 }
 
 run().catch(error => {
